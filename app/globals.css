@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.4 71.8% 29.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.ProseMirror .lt {
+  border-bottom: 2px solid #e86a69;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.ProseMirror .lt:hover {
+  background: #f38f8f33 !important;
+}
+
+/* .ProseMirror .lt-style {
+  border-bottom: 2px solid #9d8eff;
+}
+
+.ProseMirror .lt-style:hover {
+  background: rgba(157, 142, 255, 0.2) !important;
+}
+
+.ProseMirror .lt-typographical,
+.ProseMirror .lt-grammar {
+  border-bottom: 2px solid #eeb55c;
+}
+
+.ProseMirror .lt-typographical:hover,
+.ProseMirror .lt-grammar:hover {
+  background: rgba(238, 181, 92, 0.2) !important;
+} */
+
+.ProseMirror .lt-misspelling {
+  border-bottom: 2px solid #e86a69;
+}
+.ProseMirror .lt-misspelling:hover {
+  background: #f38f8f33 !important;
+}
+
+.ProseMirror-focused {
+  outline: none !important;
+}
+
+.bubble-menu {
+  box-shadow: 0.260636px 6.99515px 11px rgba(0, 0, 0, 0.08),
+    0.153463px 4.11874px 5.7376px rgba(0, 0, 0, 0.057856),
+    0.0316934px 0.85061px 1.1792px rgba(0, 0, 0, 0.035072);
+}

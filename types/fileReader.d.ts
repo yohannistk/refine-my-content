@@ -1,0 +1,3 @@
+interface FileReader {
+  filename: string;
+}
