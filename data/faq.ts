@@ -110,3 +110,39 @@ export const summarizerFaq: TFAQ[][] = [
     },
   ],
 ];
+export const imageToTextFaq: TFAQ[][] = [
+  [
+    {
+      title: "What can your Image to Text app do?",
+      subTitle:
+        "Our app extracts text from images, including scanned documents, photos, and screenshots. It converts the extracted text into an editable format for easy copying and pasting.",
+    },
+    {
+      title: "What types of images can I use?",
+      subTitle:
+        "You can use a variety of image formats, including JPG, PNG, BMP, and TIFF. The app works best with clear and well-lit images.",
+    },
+    {
+      title: "What happens to my uploaded images after processing?",
+      subTitle:
+        "We understand the importance of data privacy. We immediately remove your image from our server after processing it to extract the text. This ensures that your images are not stored on our servers for any longer than necessary.",
+    },
+  ],
+  [
+    {
+      title: "How accurate is the text extraction?",
+      subTitle:
+        "The accuracy depends on the quality of the image. Clear and well-lit images with high resolution will yield the best results. Our app uses advanced algorithms to ensure the highest possible accuracy, but some complex layouts or handwritten text might require minor adjustments.",
+    },
+    {
+      title: "How secure is my data?",
+      subTitle:
+        "We take security seriously and strive to protect your data. Please refer to our privacy policy for more details on how we handle your information.",
+    },
+    {
+      title: "Can I edit the extracted text?",
+      subTitle:
+        "Yes, the extracted text will be in an editable format. You can make any necessary changes before copying and pasting it.",
+    },
+  ],
+];

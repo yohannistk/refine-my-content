@@ -6,8 +6,8 @@ import Image from "next/image";
 import logo from "@/public/logo.png";
 export default function Footer() {
   return (
-    <footer className="">
-      <div className="container mx-auto max-w-6xl px-6 py-12">
+    <footer className="bg-secondary/55 container">
+      <div className=" mx-auto max-w-6xl px-6 py-12">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
           <div className="max-w-lg sm:col-span-2">
             <h1 className="max-w-lg text-xl font-semibold tracking-tight">
@@ -39,6 +39,12 @@ export default function Footer() {
                 className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400"
               >
                 Summarizer
+              </Link>
+              <Link
+                href="/text-to-image"
+                className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400"
+              >
+                Text To Image
               </Link>
             </div>
           </div>
@@ -73,21 +79,11 @@ export default function Footer() {
 
         <hr className="my-6 border-gray-200 md:my-8 dark:border-gray-700" />
 
-        <div className="flex items-center justify-between">
-          <div>
-            <Link href="/">
-              <Image
-                src={logo}
-                alt="Logo"
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-            </Link>
-          </div>
-
-          <div className="-mx-2 flex">
-            <span>© 2024 RefineMyContent. All rights reserved.</span>
+        <div className="flex items-center justify-center">
+          <div className="">
+            <span className="text-muted-foreground">
+              © 2024 RefineMyContent. All rights reserved.
+            </span>
           </div>
         </div>
       </div>

@@ -17,9 +17,8 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Correction } from "@/app/api/grammar/route";
 import { LanguageDropDown } from "./language_dropdown";
-import { Badge } from "../ui/badge";
 
-const defaultContent = `The car needs washed`;
+const defaultContent = ``;
 
 const ContentEditor = () => {
   const [isLoading, setIsLoading] = useState(false);

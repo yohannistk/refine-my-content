@@ -66,25 +66,6 @@
 .ProseMirror .lt:hover {
   background: #f38f8f33 !important;
 }
-
-/* .ProseMirror .lt-style {
-  border-bottom: 2px solid #9d8eff;
-}
-
-.ProseMirror .lt-style:hover {
-  background: rgba(157, 142, 255, 0.2) !important;
-}
-
-.ProseMirror .lt-typographical,
-.ProseMirror .lt-grammar {
-  border-bottom: 2px solid #eeb55c;
-}
-
-.ProseMirror .lt-typographical:hover,
-.ProseMirror .lt-grammar:hover {
-  background: rgba(238, 181, 92, 0.2) !important;
-} */
-
 .ProseMirror .lt-misspelling {
   border-bottom: 2px solid #e86a69;
 }
@@ -100,4 +81,60 @@
   box-shadow: 0.260636px 6.99515px 11px rgba(0, 0, 0, 0.08),
     0.153463px 4.11874px 5.7376px rgba(0, 0, 0, 0.057856),
     0.0316934px 0.85061px 1.1792px rgba(0, 0, 0, 0.035072);
+}
+
+.tiptap {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: "JetBrainsMono", monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0d0d0d, 0.1);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0d0d0d, 0.1);
+    margin: 2rem 0;
+  }
 }

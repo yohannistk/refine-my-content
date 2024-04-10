@@ -4,6 +4,7 @@ import React from "react";
 import ContentParaphraser from "./components/ContentParaphraser";
 import FAQ from "@/components/common/faq";
 import { paraphraserFaq } from "@/data/faq";
+import { DetailTable } from "@/components/common/detail-table";
 
 const Paraphraser = () => {
   return (
@@ -13,6 +14,7 @@ const Paraphraser = () => {
         subtitle="Paraphraser rewrites your sentences in fresh ways, helping you find new clarity and avoid plagiarism."
       />
       <ContentParaphraser />
+
       <FAQ faqs={paraphraserFaq} />
     </Container>
   );

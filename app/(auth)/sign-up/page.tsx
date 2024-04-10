@@ -33,9 +33,7 @@ const SignUp = () => {
       </div>
       <div className="flex w-full flex-1 items-center justify-center">
         <div className="w-full max-w-lg p-6">
-          <h1 className="mb-3 mt-9 text-2xl font-bold">
-            Create a Resend account
-          </h1>
+          <h1 className="mb-3 mt-9 text-2xl font-bold">Create Your Account</h1>
           <div className="text-muted-foreground mb-8">
             <p>
               Already have an account?

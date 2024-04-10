@@ -15,8 +15,8 @@ function useCopyToClipboardAndDownload() {
     };
   }, [downloadLink]);
 
-  const downloadDocx = async () => {
-    const text = textAreaRef.current!.value;
+  const downloadDocx = async (content?: string) => {
+    const text = content ? content : textAreaRef.current!.value;
     const doc = new Document({
       sections: [
         {
@@ -35,7 +35,7 @@ function useCopyToClipboardAndDownload() {
 
     const link = document.createElement("a");
     link.href = url;
-    link.download = `summarizer-${Date.now()}.docx`;
+    link.download = `refine-${Date.now()}.docx`;
     link.click();
     link.remove();
 

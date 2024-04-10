@@ -26,7 +26,7 @@ export const features: Features[] = [
     title: "Image to Text",
     href: "/image-to-text",
     description:
-      "Easily extract text from images with our efficient Image to Text web app. Instantly convert scanned documents, photos, and screenshots into editable text format.",
+      "Stop retyping! Extract text from images instantly. Upload your documents, photos, or screenshots and get editable text in seconds with our Image to Text tool.",
   },
 ];
 

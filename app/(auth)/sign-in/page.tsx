@@ -19,7 +19,7 @@ const SignIn = () => {
       </div>
       <div className="mb-32 mt-14 flex w-full flex-1 items-center justify-center ">
         <div className="w-full max-w-lg p-6">
-          <h1 className="mb-3 text-2xl font-bold">Login to Resend</h1>
+          <h1 className="mb-3 text-2xl font-bold">Login to Your Account</h1>
           <div className="text-muted-foreground mb-8">
             <p>
               Don't have an account?{" "}
