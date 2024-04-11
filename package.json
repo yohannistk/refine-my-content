@@ -35,7 +35,7 @@
     "@tiptap/react": "^2.0.3",
     "@tiptap/starter-kit": "^2.2.6",
     "@types/nodemailer": "^6.4.14",
-    "@vercel/analytics": "^0.1.11",
+    "@vercel/analytics": "^1.2.2",
     "@xmldom/xmldom": "^0.8.10",
     "att-diff": "^5.1.0",
     "axios": "^1.6.8",

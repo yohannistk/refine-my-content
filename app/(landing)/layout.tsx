@@ -3,6 +3,7 @@ import Header, { MobileHeader } from "@/components/common/Header";
 // import RichTextEditor from "@/components/common/RichTextEditor";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { Analytics } from "@vercel/analytics/react";
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -19,6 +20,7 @@ export default async function RootLayout({
       <Header session={session} />
       {children}
       <Footer />
+      <Analytics />
     </>
   );
 }
