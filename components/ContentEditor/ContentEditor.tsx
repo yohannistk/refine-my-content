@@ -79,7 +79,6 @@ const ContentEditor = () => {
   const checkGrammar = async () => {
     const cleanText = editor?.getText();
     editor?.chain().deleteSelection();
-    console.log(cleanText, language);
     if (!cleanText) {
       toast.error("Content is missing!");
       return;
@@ -98,10 +97,9 @@ const ContentEditor = () => {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        `https://6eda1985-2247-4a74-b4b7-e94f4753ee6c.deepnoteproject.com/v2/check?language=en-US&text=${cleanText}`
+        `http://api.refinemycontent.com/v2/check?language=en-US&text=${cleanText}`
       );
       if (res.data?.matches?.length > 0) {
-        console.log(res.data?.matches);
         const corrections: Correction[] = res.data?.matches.map((cor: any) => ({
           original: "",
           replacements: cor.replacements,
