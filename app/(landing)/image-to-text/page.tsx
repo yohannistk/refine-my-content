@@ -4,6 +4,12 @@ import { features } from "@/data/app_data";
 import ConverImage from "./components/ConverImage";
 import FAQ from "@/components/common/faq";
 import { imageToTextFaq } from "@/data/faq";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Text from Images Instantly: Free Online OCR Converter",
+  description: ` Extract text from pictures for free! Our powerful OCR tool converts images to text quickly and accurately.  No software needed, upload your image and get editable text instantly.`,
+};
 
 const ImageToText = () => {
   const titleContent = features[3];

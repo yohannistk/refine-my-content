@@ -5,6 +5,12 @@ import Title from "@/components/common/title";
 import FAQ from "@/components/common/faq";
 import { summarizerFaq } from "@/data/faq";
 import { DetailTable } from "@/components/common/detail-table";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Get Straight to the Point: Free Online Text Summarizer",
+  description: ` Condense lengthy text instantly with our FREE summarizer! Extract key points, save time, and improve comprehension.  Effortless summarization for articles, reports, and more!`,
+};
 
 const Summarizer = () => {
   return (

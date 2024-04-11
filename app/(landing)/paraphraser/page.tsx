@@ -4,7 +4,12 @@ import React from "react";
 import ContentParaphraser from "./components/ContentParaphraser";
 import FAQ from "@/components/common/faq";
 import { paraphraserFaq } from "@/data/faq";
-import { DetailTable } from "@/components/common/detail-table";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rephrase It Right: Free Online Paraphrasing Tool",
+  description: `Need to rephrase text without losing meaning? Our FREE paraphrasing tool offers quick and effective synonyms and sentence structure variations. Rewrite effortlessly and avoid plagiarism!`,
+};
 
 const Paraphraser = () => {
   return (

@@ -5,6 +5,12 @@ import Title from "@/components/common/title";
 import { grammarCheckerFaq } from "@/data/faq";
 import React from "react";
 import { DetailTable } from "@/components/common/detail-table";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Free Grammar Checker & Sentence Corrector",
+  description: `Polish your writing with our FREE grammar checker!  Catch errors instantly, improve sentence structure, and ensure clear communication.  Easy to use, powerful, and 100% free!`,
+};
 
 const GrammarChecker = () => {
   return (
