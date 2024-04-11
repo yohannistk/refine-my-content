@@ -97,7 +97,7 @@ const ContentEditor = () => {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        `http://api.refinemycontent.com/v2/check?language=en-US&text=${cleanText}`
+        `https://api.refinemycontent.com/v2/check?language=en-US&text=${cleanText}`
       );
       if (res.data?.matches?.length > 0) {
         const corrections: Correction[] = res.data?.matches.map((cor: any) => ({
