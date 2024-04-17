@@ -3,19 +3,9 @@
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { useRef, useState } from "react";
-import { Correction } from "@/app/api/grammar/route";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import {
-  CircleCheckBig,
-  Clipboard,
-  Copy,
-  Delete,
-  Edit,
-  Trash,
-  Trash2Icon,
-  Undo,
-} from "lucide-react";
+import { CircleCheckBig, Copy, Edit, Trash, Undo } from "lucide-react";
 import { Replacement } from "./extensions/GrammarChecker.types";
 import { LanguageDropDown } from "./language_dropdown";
 import LoadingDots from "../ui/LoadingDots";
@@ -26,6 +16,19 @@ const ContentEditor = () => {
   const [language, setLanguage] = useState("en-US");
   const [content, setContent] = useState("");
   const [currentStatus, setCurrentStatus] = useState<"edit" | "result">("edit");
+  const hidePopup = () => {
+    const popup = document.getElementById("popup");
+    popup!.classList.add("hidden");
+  };
+  useEffect(() => {
+    const popup = document.getElementById("popup");
+
+    document.addEventListener("click", (event) => {
+      if (event.target !== popup && !popup!.contains(event.target as any)) {
+        hidePopup();
+      }
+    });
+  }, []);
 
   const copyToClipboard = async () => {
     const contentToCopy =
@@ -47,36 +50,41 @@ const ContentEditor = () => {
   const getCurrentCorrectionHtml = (
     original: string,
     current: string,
-    replacements: string,
+    replacements: Replacement[],
     message: string,
     offset: number,
     lenght: number
   ): string => {
     return `
-    <div class="editable-span inline-block group relative text-blue-500 underline cursor-pointer"
+    <span class="editable-span inline-block group relative text-blue-500 underline cursor-pointer"
           id="${offset.toString()}-${(lenght + offset).toString()}"      
-          data-replacements=${JSON.stringify(replacements)}
+          data-replacements=${replacements
+            .map((replacement) => replacement.value)
+            .join("|")}
           data-original=${original}
           data-current=${current}
           data-message=${JSON.stringify(message)}
-          >${current}</div>
+          >${current}</span>
     `;
   };
-  const updateCurrentCorrection = (id: string) => {
-    const word = document.getElementById(id);
-    if (!word) return;
-    const replacementData = word.dataset.replacements;
-    const message = word.dataset.message;
-    const original = word.dataset.original;
-    const current = word.dataset.current;
+
+  const showPopup = (event: any) => {
+    const popup = document.getElementById("popup");
+
+    event.stopPropagation();
     const replacements: Replacement[] = [];
+    const span = event.target;
+    const replacementData: string = span.dataset.replacements;
+    const message = span.dataset.message;
+    const original = span.dataset.original;
+    const current = span.dataset.current;
+
     if (replacementData) {
       try {
-        const parsedData = JSON.parse(replacementData); // Parse JSON data (adjust if format is different)
-        parsedData.forEach((replacement: Replacement) => {
-          if (replacement.value != current) {
+        replacementData.split("|").forEach((value: string) => {
+          if (value != current) {
             replacements.push({
-              value: replacement.value,
+              value,
             });
           }
         });
@@ -84,44 +92,23 @@ const ContentEditor = () => {
         console.error("Error parsing replacement data:", error);
       }
     }
-    const popup = document.createElement("div");
-    popup.classList.add(
-      "absolute",
-      "hidden",
-      "left-0",
-      "px-3",
-      "py-2",
-      "space-y-2",
-      "group-hover:block",
-      "rounded-md",
-      "bg-white",
-      "shadow-2xl",
-      "text-gray-700",
-      "z-10",
-      "w-72",
-      "text-sm",
-      "text-gray-500",
-      "border",
-      "border-gray-200",
-      "rounded-lg",
-      "shadow-sm"
-    );
-    popup.innerHTML = `
-    <h3 class="font-normal uppercase text-gray-900 dark:text-white">Popover title</h3>
-    <p class="text-sm text-black">${message}</p>
-  `;
+
     const undoButton = document.createElement("button");
+    const errorMessage = document.createElement("p");
+    errorMessage.className = "text-muted-foreground text-sm";
+    errorMessage.textContent = message || "";
     undoButton.className =
       "bg-secondary mt-4 w-full h-8 flex justify-center items-center";
     undoButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-undo"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
-      <span class="font-medium ml-2">
-      ${original}</span></button>
-      `;
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-undo"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
+    <span class="font-medium ml-2">
+    ${original}</span></button>
+    `;
+
     undoButton.addEventListener("click", (e) => {
-      word.setAttribute("data-current", original!);
-      word.innerHTML = original!;
-      updateCurrentCorrection(word.id);
+      span.setAttribute("data-current", original!);
+      span.textContent = original!;
+      hidePopup();
     });
     const buttons = document.createElement("div");
     buttons.className = "mt-3 flex flex-wrap gap-1";
@@ -129,105 +116,31 @@ const ContentEditor = () => {
     replacements.forEach((replacement) => {
       const button = document.createElement("button");
       button.className =
-        "bg-primary h-6 w-auto rounded py-1 px-3 font-medium text-white";
+        "bg-primary w-auto rounded py-1 px-3 font-medium text-white";
       button.textContent = replacement.value;
       button.addEventListener("click", () => {
-        word.setAttribute("data-current", replacement.value);
-        word.innerHTML = replacement.value;
-        updateCurrentCorrection(word.id);
+        span.setAttribute("data-current", replacement.value);
+        span.textContent = replacement.value;
+        hidePopup();
       });
       buttons.appendChild(button);
     });
-    word.appendChild(popup);
-    popup.appendChild(buttons);
-    console.log(current, original);
-    if (current != original) {
-      popup.appendChild(undoButton);
+    popup!.innerHTML = "";
+    popup!.appendChild(errorMessage);
+    popup!.appendChild(buttons);
+    if (original != current) {
+      popup!.appendChild(undoButton);
     }
-  };
 
+    const spanRect = event.target.getBoundingClientRect();
+    popup!.style.top = `${spanRect.bottom + window.scrollY + 5}px`; // Position below span with scroll factored in
+    popup!.style.left = `${spanRect.left + window.scrollX}px`; // Align left edge with span
+    popup!.classList.remove("hidden");
+  };
   const revalidateCorrection = () => {
     const editableSpans = document.querySelectorAll(".editable-span");
-
     editableSpans.forEach((span) => {
-      const replacements: Replacement[] = [];
-      const spanElement = span as HTMLElement;
-      const replacementData = spanElement.dataset.replacements;
-      const message = spanElement.dataset.message;
-      const original = spanElement.dataset.original;
-      const current = spanElement.dataset.current;
-      console.log(message);
-      if (replacementData) {
-        try {
-          const parsedData = JSON.parse(replacementData); // Parse JSON data (adjust if format is different)
-          parsedData.forEach((replacement: Replacement) => {
-            if (replacement.value != current) {
-              replacements.push({
-                value: replacement.value,
-              });
-            }
-          });
-        } catch (error) {
-          console.error("Error parsing replacement data:", error);
-        }
-      }
-      const popup = document.createElement("div");
-      popup.classList.add(
-        "absolute",
-        "hidden",
-        "left-0",
-        "px-3",
-        "py-2",
-        "space-y-2",
-        "group-hover:block",
-        "rounded-md",
-        "bg-white",
-        "shadow-2xl",
-        "text-gray-700",
-        "z-10",
-        "w-72",
-        "text-sm",
-        "text-gray-500",
-        "border",
-        "border-gray-200",
-        "rounded-lg",
-        "shadow-sm"
-      );
-      popup.innerHTML = `
-        <h3 class="font-normal uppercase text-gray-900 dark:text-white">Grammatical Error</h3>
-        <p class="text-sm text-black">${message}</p>
-      `;
-      const undoButton = document.createElement("button");
-      undoButton.className =
-        "bg-secondary mt-4 w-full h-8 flex justify-center items-center";
-      undoButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-undo"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
-      <span class="font-medium ml-2">
-      ${original}</span></button>
-      `;
-      undoButton.addEventListener("click", (e) => {
-        span.setAttribute("data-current", original!);
-        span.innerHTML = original!;
-        updateCurrentCorrection(span.id);
-      });
-      const buttons = document.createElement("div");
-      buttons.className = "mt-3 flex flex-wrap gap-1";
-
-      replacements.forEach((replacement) => {
-        const button = document.createElement("button");
-        button.className =
-          "bg-primary h-6 w-auto rounded py-1 px-3 font-medium text-white";
-        button.textContent = replacement.value;
-        button.addEventListener("click", () => {
-          span.setAttribute("data-current", replacement.value);
-          span.innerHTML = replacement.value;
-          updateCurrentCorrection(span.id);
-        });
-        buttons.appendChild(button);
-      });
-      span.appendChild(popup);
-      popup.appendChild(buttons);
-      popup.appendChild(undoButton);
+      span.addEventListener("click", showPopup);
     });
   };
   function countWords(value: string) {
@@ -281,7 +194,7 @@ const ContentEditor = () => {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        `https://api.refinemycontent.com/v2/check?language=en-US&text=${encodeURIComponent(
+        `https://api.refinemycontent.com/v2/check?language=${language}&text=${encodeURIComponent(
           cleanText
         )}&disabledRules=WHITESPACE_RULE&allowIncompleteResults=true`
       );
@@ -377,7 +290,7 @@ const ContentEditor = () => {
             placeholder="Enter or paste text here..."
             id="content-editable"
             className={cn(
-              "mb-5 h-full w-full resize-none rounded-md border-none p-6 outline-none placeholder:text-lg"
+              "bg-secondary/30 mb-5 h-full w-full resize-none rounded-md border-none p-6 outline-none placeholder:text-lg"
             )}
             translate="no"
             spellCheck="false"

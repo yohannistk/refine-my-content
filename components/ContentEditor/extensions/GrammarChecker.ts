@@ -1,5 +1,5 @@
 import { Extension } from "@tiptap/core";
-import { Dexie } from "dexie";
+// import { Dexie } from "dexie";
 import { debounce } from "lodash";
 import { Node as PMNode } from "prosemirror-model";
 import { Plugin, PluginKey, Transaction } from "prosemirror-state";
@@ -152,9 +152,11 @@ export function changedDescendants(
 }
 
 const gimmeDecoration = (from: number, to: number, match: Match) => {
+  console.log("from", from);
+  console.log("to", to);
+
   return Decoration.inline(from, to, {
     // class: `lt lt-${match.rule.issueType}`,
-    id: `${from}-${to}`,
     class: "lt lt-misspelling",
     nodeName: "span",
     match: JSON.stringify({ match, from, to }),
