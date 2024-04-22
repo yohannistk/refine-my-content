@@ -117,9 +117,8 @@ const ContentSummarizer = () => {
   }
 
   return (
-    <div className="rounded-lg border shadow-xl">
-      <div className="bg-secondary/60 flex flex-col items-center justify-start px-3 py-2 sm:flex-row">
-        <div className="text-muted-foreground">Ai Summarizer</div>
+    <div className="rounded-lg border shadow-2xl">
+      <div className="flex flex-col items-center justify-start px-3 py-2 sm:flex-row">
         <div className="ml-3 mt-2 flex gap-2 sm:mt-0">
           {modes.map((m) => {
             console.log(mode == m.value);
@@ -165,7 +164,7 @@ const ContentSummarizer = () => {
             </form>
           </div>
           {mode == "custom" && (
-            <div className="bg-secondary/60 absolute bottom-16 left-0 right-0 border-t p-4">
+            <div className="absolute bottom-16 left-0 right-0 border-t p-4">
               <Label className="mb-3">
                 Customize the summary with instructions
               </Label>
@@ -177,7 +176,7 @@ const ContentSummarizer = () => {
               />
             </div>
           )}
-          <div className="bg-secondary/60 flex h-16 items-center justify-between p-3">
+          <div className="flex h-16 items-center justify-between p-3">
             <form hidden>
               <input
                 accept=".docx"
@@ -222,7 +221,7 @@ const ContentSummarizer = () => {
               className="h-full w-full  resize-none border-none text-base outline-none focus-visible:ring-0"
             />
           </div>
-          <div className="bg-secondary/60 flex h-16 items-center justify-between p-3">
+          <div className="flex h-16 items-center justify-between p-3">
             <div>
               {summary.length > 0 ? (
                 <span className="text-muted-foreground text-sm">

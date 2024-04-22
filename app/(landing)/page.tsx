@@ -3,7 +3,7 @@ import ContentEditorUpdated from "@/components/ContentEditor/ContentEditorUpdate
 import FAQ from "@/components/common/faq";
 import Title from "@/components/common/title";
 import { grammarCheckerFaq } from "@/data/faq";
-import React, { useEffect } from "react";
+import React from "react";
 import { DetailTable } from "@/components/common/detail-table";
 import { Metadata } from "next";
 
@@ -15,19 +15,11 @@ export const metadata: Metadata = {
 const GrammarChecker = () => {
   return (
     <Container>
-      {/* <GrammarTest /> */}
       <Title
         title="Grammar Checker"
         subtitle="Grammar Checker identifies and corrects errors in your writing, ensuring clarity and professionalism."
       />
-      <div
-        id="popup"
-        className="popup dark:bg-secondary/40 text-muted-foreground border-secondary absolute left-0 z-10 hidden w-72 space-y-2 rounded-md border-2 bg-white px-3 py-2 text-sm shadow-2xl"
-      >
-        <h3 className="font-normal uppercase text-gray-900 dark:text-white">
-          Grammatical Error
-        </h3>
-      </div>
+
       <ContentEditorUpdated />
 
       <DetailTable

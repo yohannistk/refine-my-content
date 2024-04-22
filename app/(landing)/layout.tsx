@@ -1,6 +1,6 @@
 import Footer from "@/components/common/Footer";
-import Header, { MobileHeader } from "@/components/common/Header";
-import RichTextEditor from "@/components/common/RichTextEditor";
+import Header from "@/components/common/Header";
+import Aside from "@/components/common/aside";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 export default async function RootLayout({
@@ -15,11 +15,13 @@ export default async function RootLayout({
 
   return (
     <>
-      <MobileHeader session={session} />
-      {/* <RichTextEditor /> */}
-      <Header session={session} />
-      {children}
-      <Footer />
+      <div className="">
+        <Header session={session} />
+        <main className="flex-1 items-start p-4 sm:px-6 sm:py-0">
+          {children}
+          <Footer />
+        </main>
+      </div>
     </>
   );
 }

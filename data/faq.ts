@@ -110,6 +110,44 @@ export const summarizerFaq: TFAQ[][] = [
     },
   ],
 ];
+
+export const wordCounterFaq: TFAQ[][] = [
+  [
+    {
+      title: "What is a word counter app?",
+      subTitle:
+        "A word counter app is a tool that helps users determine the number of words, characters, sentences, and paragraphs in a given text. It's useful for writers, students, and professionals who need to track their word count for various purposes.",
+    },
+    {
+      title: "How do I use your word counter app?",
+      subTitle:
+        "Using our word counter app is simple. Just paste your text into the provided input field on our website or app, and the tool will instantly display the word count, character count, sentence count, and paragraph count.",
+    },
+    {
+      title: "Can your word counter app handle large documents?",
+      subTitle:
+        "Yes, our app is designed to handle large documents and texts of any length. You can paste entire articles, essays, or manuscripts, and the word counter will accurately count all the words, characters, sentences, and paragraphs.",
+    },
+  ],
+  [
+    {
+      title: "Is the word count provided by your app accurate?",
+      subTitle:
+        "Our word counter app uses advanced algorithms to ensure accurate word, character, sentence, and paragraph counts. However, minor variations may occur depending on the text formatting and language used.",
+    },
+    {
+      title: "Can I use your word counter app offline?",
+      subTitle:
+        "At the moment, our word counter app is available online and requires an internet connection to function. We are exploring options for offline functionality in future updates.",
+    },
+    {
+      title: "Is my data secure when using your word counter app?",
+      subTitle:
+        "We prioritize the security and privacy of user data. Our app does not store or share any text or data you input for word counting. For more details, please refer to our privacy policy.",
+    },
+  ],
+];
+
 export const imageToTextFaq: TFAQ[][] = [
   [
     {

@@ -18,7 +18,7 @@ const ContentEditor = () => {
   const [currentStatus, setCurrentStatus] = useState<"edit" | "result">("edit");
   const hidePopup = () => {
     const popup = document.getElementById("popup");
-    popup!.classList.add("hidden");
+    if (popup) popup!.classList.add("hidden");
   };
   useEffect(() => {
     const popup = document.getElementById("popup");
@@ -252,7 +252,15 @@ const ContentEditor = () => {
 
   return (
     <div className="rounded-xl border shadow-2xl">
-      <div className="flex h-80 flex-col">
+      <div
+        id="popup"
+        className="popup dark:bg-secondary/40 text-muted-foreground border-secondary absolute left-0 z-10 hidden w-72 space-y-2 rounded-md border-2 bg-white px-3 py-2 text-sm shadow-2xl"
+      >
+        <h3 className="font-normal uppercase text-gray-900 dark:text-white">
+          Grammatical Error
+        </h3>
+      </div>
+      <div className="bg-background flex h-80 flex-col rounded-xl">
         <div className="flex h-auto items-center justify-between rounded-t-xl p-1 px-3">
           <LanguageDropDown language={language} setLanguage={setLanguage} />
           <div className="flex items-center gap-2">
@@ -276,7 +284,6 @@ const ContentEditor = () => {
           })}
           ref={contentRef}
         ></div>
-
         <div
           className={cn("flex-1", {
             hidden: currentStatus == "result",
@@ -290,7 +297,7 @@ const ContentEditor = () => {
             placeholder="Enter or paste text here..."
             id="content-editable"
             className={cn(
-              "bg-secondary/30 mb-5 h-full w-full resize-none rounded-md border-none p-6 outline-none placeholder:text-lg"
+              "bg-background mb-5 h-full w-full resize-none rounded-md border-none p-6 outline-none placeholder:text-lg"
             )}
             translate="no"
             spellCheck="false"
@@ -298,7 +305,7 @@ const ContentEditor = () => {
             contentEditable="true"
           />
         </div>
-        <div className="bg-secondary/60 flex items-center justify-between rounded-b-xl border p-1 px-6 py-2 ">
+        <div className="flex items-center justify-between rounded-b-xl border p-1 px-6 py-2 ">
           <div>
             {currentStatus == "edit" && content.length > 0 && (
               <span className="text-muted-foreground text-sm">

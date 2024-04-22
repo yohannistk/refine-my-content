@@ -115,10 +115,8 @@ const ContentParaphraser = () => {
   }
 
   return (
-    <div className="rounded-lg border shadow-xl">
-      <div className="bg-secondary/60 flex flex-col items-center justify-between gap-3 px-3 py-2 sm:flex-row sm:gap-0 lg:justify-start">
-        <div className="text-muted-foreground">Ai Paraphraser</div>
-
+    <div className="rounded-lg border shadow-2xl">
+      <div className=" flex flex-col items-center justify-between gap-3 px-3 py-2 sm:flex-row sm:gap-0 lg:justify-start">
         <div className="block lg:hidden">
           <ParaphraserModeChooser mode={mode} setMode={setMode} />
         </div>
@@ -166,7 +164,7 @@ const ContentParaphraser = () => {
             </form>
           </div>
 
-          <div className="bg-secondary/60 flex h-16 items-center justify-between px-5 py-3">
+          <div className=" flex h-16 items-center justify-between px-5 py-3">
             <form hidden>
               <input
                 accept=".docx"
@@ -209,7 +207,7 @@ const ContentParaphraser = () => {
               className="h-full w-full  resize-none border-none text-base outline-none focus-visible:ring-0"
             />
           </div>
-          <div className="bg-secondary/60 flex h-16 items-center justify-between p-3">
+          <div className=" flex h-16 items-center justify-between p-3">
             <div>
               {summary.length > 0 ? (
                 <span className="text-muted-foreground text-sm">

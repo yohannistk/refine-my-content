@@ -4,7 +4,6 @@ import React from "react";
 import paraphraseIcon from "../../public/icons/exchange_302409.png";
 import summarizerIcon from "../../public/icons/letter_1027530.png";
 import grammarCheckIcon from "../../public/icons/application_14061644.png";
-
 const Features = () => {
   return (
     <section className="tails-selected-element py-20">

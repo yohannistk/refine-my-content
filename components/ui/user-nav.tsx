@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,8 +13,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { LogOut, Mail, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { DialogComfirmDeleAccount } from "./user-comfirm";
 
 interface Props {
   email: string;
@@ -33,25 +37,43 @@ export function UserNav(props: Props) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8">
+          <Avatar className="flex h-10 w-10 items-center justify-center border">
             <AvatarImage src={props.avatarUrl} alt={props.userName} />
-            <AvatarFallback>{props.userName.substring(0, 2)}</AvatarFallback>
+            <AvatarFallback>
+              {props.userName.substring(0, 2).toUpperCase()}
+            </AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{props.userName}</p>
-            <p className="text-muted-foreground text-xs leading-none">
+          <div className="mb-3 flex flex-col space-y-1">
+            <p className="font-medium leading-none">{props.userName}</p>
+            <p className="text-muted-foreground text-sm leading-none">
               {props.email}
             </p>
           </div>
         </DropdownMenuLabel>
+
+        <DropdownMenuItem
+          onClick={() => {
+            router.push("/contact");
+          }}
+          className="flex cursor-pointer items-center"
+        >
+          <Mail size={18} strokeWidth={1} className="mr-2" />
+          Contact As
+          {/* <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut> */}
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleLogOut}>
+
+        <DropdownMenuItem
+          onClick={handleLogOut}
+          className="mb-1 flex cursor-pointer items-center"
+        >
+          <LogOut size={18} strokeWidth={1} className="mr-2" />
           Log out
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          {/* <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut> */}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

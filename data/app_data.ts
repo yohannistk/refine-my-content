@@ -1,23 +1,33 @@
+import { IconType } from "react-icons";
+import { ImSpellCheck } from "react-icons/im";
+import { FiFileText } from "react-icons/fi";
+import { LucideIcon, ScanText } from "lucide-react";
+import { TbFilePencil } from "react-icons/tb";
+import { MdOutlineDocumentScanner } from "react-icons/md";
 export type Features = {
   title: string;
   href: string;
   description: string;
+  icon: IconType;
 };
 export const features: Features[] = [
   {
     title: "Grammar Checker",
+    icon: ImSpellCheck,
     href: "/",
     description:
       "Grammar Checker identifies and corrects errors in your writing, ensuring clarity and professionalism.",
   },
   {
     title: "Paraphraser",
+    icon: TbFilePencil,
     href: "/paraphraser",
     description:
       "Paraphraser rewrites your sentences in fresh ways, helping you find new clarity and avoid plagiarism.",
   },
   {
     title: "Summarizer",
+    icon: FiFileText,
     href: "/summarizer",
     description:
       "Summarizer condenses lengthy text into key ideas, saving you time and helping you grasp the essentials quickly.",
@@ -25,6 +35,7 @@ export const features: Features[] = [
   {
     title: "Image to Text",
     href: "/image-to-text",
+    icon: MdOutlineDocumentScanner,
     description:
       "Stop retyping! Extract text from images instantly. Upload your documents, photos, or screenshots and get editable text in seconds with our Image to Text tool.",
   },

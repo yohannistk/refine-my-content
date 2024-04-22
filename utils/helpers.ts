@@ -1,4 +1,5 @@
 import type { Tables } from "@/lib/database.types";
+import toast from "react-hot-toast";
 
 export const getURL = (path: string = "") => {
   // Check if NEXT_PUBLIC_SITE_URL is set and non-empty. Set this to your site URL in production env.
@@ -22,4 +23,13 @@ export const getURL = (path: string = "") => {
 
   // Concatenate the URL and the path.
   return path ? `${url}/${path}` : url;
+};
+
+export const copyToClipboard = async (content: string) => {
+  try {
+    await navigator.clipboard.writeText(content!);
+    toast.success("Content copied to clipboard!"); // Optional notification
+  } catch (error) {
+    toast.error("Failed to copy content!"); // Optional notification
+  }
 };

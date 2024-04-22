@@ -39,13 +39,13 @@ const FAQ = ({ faqs }: Props) => {
         </h2>
         <div className="grid border-t border-gray-200 pt-8 text-left md:grid-cols-2 md:gap-16 dark:border-gray-700">
           <div>
-            {faqs[0].map((faq) => {
-              return <FAQElement faq={faq} />;
+            {faqs[0].map((faq, index) => {
+              return <FAQElement faq={faq} key={index} />;
             })}
           </div>
           <div>
-            {faqs[1].map((faq) => {
-              return <FAQElement faq={faq} />;
+            {faqs[1].map((faq, index) => {
+              return <FAQElement faq={faq} key={index} />;
             })}
           </div>
         </div>

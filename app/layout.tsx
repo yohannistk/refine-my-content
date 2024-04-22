@@ -4,7 +4,6 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Hydrated from "@/components/common/hydrated";
 import { ThemeProvider } from "@/providers/theme-provider";
-import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +18,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // api.refinemycontent.com
   return (
     <html lang="en">
       <body className={inter.className}>

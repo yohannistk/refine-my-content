@@ -41,10 +41,16 @@ export default function Footer() {
                 Summarizer
               </Link>
               <Link
-                href="/text-to-image"
+                href="/image-to-text"
                 className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400"
               >
-                Text To Image
+                Image To Text
+              </Link>
+              <Link
+                href="/word-counter"
+                className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400"
+              >
+                Word Counter
               </Link>
             </div>
           </div>
