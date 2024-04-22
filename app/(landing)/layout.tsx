@@ -1,5 +1,4 @@
 import Footer from "@/components/common/Footer";
-import Aside from "@/components/common/aside";
 import Header from "@/components/common/header";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
