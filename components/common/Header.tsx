@@ -45,31 +45,17 @@ const Header = (props: Props) => {
     <header className="bg-background sticky top-0 z-50 flex h-16 items-center justify-between gap-4 border-b px-6 md:px-12">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <NavLogo />
-
-        <Link
-          href="/"
-          className="text-foreground hover:text-foreground transition-colors"
-        >
-          Grammar Checker
-        </Link>
-        <Link
-          href="/paraphraser"
-          className="text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Paraphraser
-        </Link>
-        <Link
-          href="/summarizer"
-          className="text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Summarizer
-        </Link>
-        <Link
-          href="/image-to-text"
-          className="text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Image To Text
-        </Link>
+        {features.map((feature) => {
+          return (
+            <Link
+              key={feature.href}
+              href={feature.href}
+              className="text-foreground hover:text-foreground transition-colors"
+            >
+              {feature.title}
+            </Link>
+          );
+        })}
       </nav>
       <Sheet>
         <SheetTrigger asChild>
@@ -84,7 +70,11 @@ const Header = (props: Props) => {
             {features.map((feature) => {
               return (
                 <SheetClose asChild>
-                  <Link href={feature.href} className="hover:text-foreground">
+                  <Link
+                    key={feature.title}
+                    href={feature.href}
+                    className="hover:text-foreground"
+                  >
                     {feature.title}
                   </Link>
                 </SheetClose>

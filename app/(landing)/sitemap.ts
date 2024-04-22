@@ -47,10 +47,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: getURL("/more"),
+      url: getURL("/image-to-text"),
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.6,
+      priority: 1,
     },
   ];
 }
