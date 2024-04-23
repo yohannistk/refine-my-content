@@ -8,7 +8,8 @@ import { Metadata } from "next";
 import React from "react";
 export const metadata: Metadata = {
   title: "Word Count Pro: Your Free Online Word Counter Tool",
-  description: `Count words, characters, and sentences instantly with Word Count Pro. Perfect for writers, students, and professionals needing accurate word analysis. Try it now for free!`,
+  description:
+    "Count words, characters, and sentences instantly with Word Count Pro. Perfect for writers, students, and professionals needing accurate word analysis. Try it now for free!",
 };
 const TextEditor = () => {
   return (
