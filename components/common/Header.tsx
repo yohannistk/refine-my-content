@@ -41,7 +41,7 @@ const NavLogo = () => {
 const Header = (props: Props) => {
   const { session } = props;
   return (
-    <header className="bg-background sticky top-0 z-50 flex h-16 items-center justify-between gap-4  px-6 md:px-12">
+    <header className="container mx-auto flex max-w-6xl flex-col flex-wrap items-center justify-between py-5 md:flex-row">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <NavLogo />
         {features.map((feature) => {
@@ -49,7 +49,7 @@ const Header = (props: Props) => {
             <Link
               key={feature.href}
               href={feature.href}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground font-medium leading-6 hover:text-gray-900"
             >
               {feature.title}
             </Link>

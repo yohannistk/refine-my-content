@@ -426,7 +426,7 @@ export default function RichTextEditor({ children }: PropsWithChildren) {
     });
   };
   return (
-    <div className="flex h-96 max-h-96 flex-col overflow-hidden rounded-2xl border shadow-2xl ">
+    <div className="mb-16 flex h-96 max-h-96 flex-col overflow-hidden rounded-2xl border shadow-lg ">
       <ToolBar editor={editor} />
       <div className="max-h-full flex-1 overflow-hidden">
         <EditorContent content={content} editor={editor} />

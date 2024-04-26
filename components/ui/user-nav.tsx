@@ -16,7 +16,6 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { LogOut, Mail, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { DialogComfirmDeleAccount } from "./user-comfirm";
 
 interface Props {
   email: string;
@@ -40,7 +39,7 @@ export function UserNav(props: Props) {
           <Avatar className="flex h-10 w-10 items-center justify-center border">
             <AvatarImage src={props.avatarUrl} alt={props.userName} />
             <AvatarFallback>
-              {props.userName.substring(0, 2).toUpperCase()}
+              {props.userName?.substring(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>
         </Button>
