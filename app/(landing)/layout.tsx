@@ -16,7 +16,7 @@ export default async function RootLayout({
     <>
       <div className="">
         <Header session={session} />
-        <main className="flex-1 items-start p-4 sm:px-6 sm:py-0">
+        <main className="">
           {children}
           <Footer />
         </main>

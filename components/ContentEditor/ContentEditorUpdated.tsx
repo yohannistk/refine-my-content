@@ -251,17 +251,17 @@ const ContentEditor = () => {
   };
 
   return (
-    <div className="rounded-xl border shadow-2xl">
+    <div className="rounded-xl border shadow-xl">
       <div
         id="popup"
-        className="popup dark:bg-secondary/40 text-muted-foreground border-secondary absolute left-0 z-10 hidden w-72 space-y-2 rounded-md border-2 bg-white px-3 py-2 text-sm shadow-2xl"
+        className="popup dark:bg-secondary/40 text-muted-foreground border-secondary absolute left-0 z-10 hidden w-72 space-y-2 rounded-md border-2 bg-white px-3 py-2 text-sm shadow-xl"
       >
         <h3 className="font-normal uppercase text-gray-900 dark:text-white">
           Grammatical Error
         </h3>
       </div>
       <div className="bg-background flex h-80 flex-col rounded-xl">
-        <div className="flex h-auto items-center justify-between rounded-t-xl p-1 px-3">
+        <div className="flex h-auto items-center justify-between rounded-t-xl border-b p-1 px-3">
           <LanguageDropDown language={language} setLanguage={setLanguage} />
           <div className="flex items-center gap-2">
             <button
@@ -297,7 +297,7 @@ const ContentEditor = () => {
             placeholder="Enter or paste text here..."
             id="content-editable"
             className={cn(
-              "bg-background mb-5 h-full w-full resize-none rounded-md border-none p-6 outline-none placeholder:text-lg"
+              "mb-5 h-full w-full resize-none rounded-md border-none bg-inherit p-6 outline-none placeholder:text-lg"
             )}
             translate="no"
             spellCheck="false"
