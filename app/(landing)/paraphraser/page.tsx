@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 const Paraphraser = () => {
   return (
     <Container>
+      <ContentParaphraser />
       <Title
         title="Paraphraser"
-        subtitle="Paraphraser rewrites your sentences in fresh ways, helping you find new clarity and avoid plagiarism."
+        subtitle="Struggling to paraphrase? Our free online paraphrasing tool can help! Simply enter your text and get clear, concise paraphrases in seconds.  Improve your writing and avoid plagiarism with our easy-to-use paraphrase tool."
       />
-      <ContentParaphraser />
 
       <FAQ faqs={paraphraserFaq} />
     </Container>

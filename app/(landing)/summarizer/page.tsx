@@ -15,12 +15,11 @@ export const metadata: Metadata = {
 const Summarizer = () => {
   return (
     <Container>
+      <ContentSummarizer />
       <Title
         title="Summarizer"
-        subtitle="Summarizer condenses lengthy text into key ideas, saving you time and helping you grasp the essentials quickly."
+        subtitle="Need to quickly grasp key points? Our free summarizer tool condenses lengthy texts into concise summaries. Simply upload your document or paste text, and our AI will summarize it for easy comprehension. Summarize articles, essays, or research papers – it's the perfect tool to save time and verify information!"
       />
-      <ContentSummarizer />
-
       <DetailTable
         tableData={{
           title: "Effortlessly understand complex documents.",

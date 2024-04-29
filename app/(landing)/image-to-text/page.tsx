@@ -15,8 +15,13 @@ const ImageToText = () => {
   const titleContent = features[3];
   return (
     <Container>
-      <Title title={titleContent.title} subtitle={titleContent.description} />
       <ConverImage />
+      <Title
+        title={titleContent.title}
+        subtitle={
+          "Stuck with text in an image? Our suite of free tools includes an image-to-text converter powered by advanced OCR (Optical Character Recognition).  Just upload your image and instantly extract editable text, making documents and scanned files digitally searchable and easier to manage."
+        }
+      />
       <FAQ faqs={imageToTextFaq} />
     </Container>
   );

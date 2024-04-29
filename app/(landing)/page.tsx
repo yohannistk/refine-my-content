@@ -16,11 +16,12 @@ const GrammarChecker = () => {
   return (
     <>
       <Container>
+        <ContentEditorUpdated />
+
         <Title
           title="Grammar Checker"
-          subtitle="Grammar Checker identifies and corrects errors in your writing, ensuring clarity and professionalism."
+          subtitle="Unsure about grammar or syntax? Our free grammar checker tackles them all!  Simply copy-paste your text and get instant feedback on grammar, punctuation, and sentence structure.  Verify grammar and refine your writing for free – it's the perfect tool for students, professionals, and anyone who wants to polish their writing!"
         />
-        <ContentEditorUpdated />
       </Container>
 
       <section className="bg-secondary/75 py-20 ">
