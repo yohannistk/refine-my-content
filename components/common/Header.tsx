@@ -12,7 +12,7 @@ import { ThemeChanger } from "../ui/theme-changer";
 import { Session } from "@supabase/supabase-js";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { UserNav } from "../ui/user-nav";
-import logo from "@/public/logo.png";
+import logo from "@/public/logo.svg";
 import Image from "next/image";
 import { features } from "@/data/app_data";
 
