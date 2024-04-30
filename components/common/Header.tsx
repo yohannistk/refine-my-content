@@ -41,7 +41,7 @@ const NavLogo = () => {
 const Header = (props: Props) => {
   const { session } = props;
   return (
-    <header className="container mx-auto flex max-w-6xl flex-col flex-wrap items-center justify-between py-5 md:flex-row">
+    <header className="container mx-auto flex max-w-6xl items-center justify-between py-5 md:flex-row">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <NavLogo />
         {features.map((feature) => {

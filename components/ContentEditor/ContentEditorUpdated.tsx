@@ -55,17 +55,15 @@ const ContentEditor = () => {
     offset: number,
     lenght: number
   ): string => {
-    return `
-    <span class="editable-span inline-block group relative text-blue-500 underline cursor-pointer"
-          id="${offset.toString()}-${(lenght + offset).toString()}"      
-          data-replacements=${replacements
-            .map((replacement) => replacement.value)
-            .join("|")}
-          data-original=${original}
-          data-current=${current}
-          data-message=${JSON.stringify(message)}
-          >${current}</span>
-    `;
+    return `<span class="editable-span inline-block group relative text-blue-500 underline cursor-pointer" id="${offset.toString()}-${(
+      lenght + offset
+    ).toString()}" data-replacements=${replacements
+      .map((replacement) => replacement.value)
+      .join(
+        "|"
+      )} data-original=${original} data-current=${current} data-message=${JSON.stringify(
+      message
+    )}>${current}</span>`;
   };
 
   const showPopup = (event: any) => {
@@ -199,7 +197,7 @@ const ContentEditor = () => {
         )}&disabledRules=WHITESPACE_RULE&allowIncompleteResults=true`
       );
       const matches = res.data?.matches;
-      console.log(matches);
+      // console.log(matches);
       if (matches.length > 0) {
         let newcontent = content;
         let prevCalc = 0;
@@ -236,8 +234,8 @@ const ContentEditor = () => {
             prevCalc += newLenght - oldLenght;
           }
         }
-        console.log(newcontent);
-        contentRef.current!.innerHTML = newcontent;
+        console.log(newcontent.split(/\r?\n/), "newcontent");
+        contentRef.current!.innerHTML = newcontent.split(/\r?\n/).join("<br>");
         revalidateCorrection();
         setCurrentStatus("result");
       } else {
