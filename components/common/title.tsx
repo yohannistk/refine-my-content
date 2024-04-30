@@ -7,11 +7,11 @@ interface Props {
 
 const Title = ({ subtitle, title }: Props) => {
   return (
-    <div className="my-9 mb-1 pb-4 pt-10 text-center">
-      <h1 className="text-accent-foreground mb-4 text-xl font-medium md:text-4xl">
+    <div className="my-9 mb-1 pb-4 pt-10 ">
+      <h1 className="text-accent-foreground mb-4 text-xl font-bold md:text-4xl">
         {title}
       </h1>
-      <p className="text-muted-foreground">{subtitle}</p>
+      <p className="text-muted-foreground text-lg">{subtitle}</p>
     </div>
   );
 };

@@ -35,7 +35,7 @@ export function LanguageDropDown({ language, setLanguage }: Props) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[200px] justify-between border-none"
         >
           {language
             ? languages.find((lan) => lan.longCode === language)?.name

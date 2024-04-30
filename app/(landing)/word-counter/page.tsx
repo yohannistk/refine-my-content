@@ -14,15 +14,17 @@ export const metadata: Metadata = {
 const TextEditor = () => {
   return (
     <Container>
-      <Title
-        title="Word Counter"
-        subtitle="Count words, characters, sentences, and paragraphs effortlessly with our word counter app. Track your writing progress accurately and efficiently."
-      />
       <div className="mt-8">
         <RichTextEditor>
           <WordCountFooter />
         </RichTextEditor>
       </div>
+
+      <Title
+        title="Word Counter"
+        subtitle="Count words, characters, sentences, and paragraphs effortlessly with our word counter app. Track your writing progress accurately and efficiently."
+      />
+
       <div className="mx-auto max-w-5xl  px-5 py-12">
         <h2 className="mb-5 text-2xl md:text-3xl">What is a word counter?</h2>
         <div className=" grid grid-cols-1 gap-4 md:grid-cols-2">

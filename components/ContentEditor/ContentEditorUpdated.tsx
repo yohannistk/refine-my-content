@@ -259,7 +259,7 @@ const ContentEditor = () => {
         </h3>
       </div>
       <div className="bg-background flex h-80 flex-col rounded-xl">
-        <div className="flex h-auto items-center justify-between rounded-t-xl border-b p-1 px-3">
+        <div className="flex h-auto items-center justify-between rounded-t-xl p-1 px-3">
           <LanguageDropDown language={language} setLanguage={setLanguage} />
           <div className="flex items-center gap-2">
             <button
