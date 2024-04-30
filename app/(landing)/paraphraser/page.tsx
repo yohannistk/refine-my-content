@@ -16,13 +16,15 @@ const Paraphraser = () => {
   return (
     <Container>
       <ContentParaphraser />
-      <Title
-        title="Paraphraser"
-        subtitle="Struggling to paraphrase? Our free online paraphrasing tool can help! Simply enter your text and get clear, concise paraphrases in seconds.  Improve your writing and avoid plagiarism with our easy-to-use paraphrase tool."
-      />
+      <div className="max-w-4xl">
+        <Title
+          title="Paraphraser"
+          subtitle="Struggling to paraphrase? Our free online paraphrasing tool can help! Simply enter your text and get clear, concise paraphrases in seconds.  Improve your writing and avoid plagiarism with our easy-to-use paraphrase tool."
+        />
+      </div>
 
       <div className="bg-background py-12">
-        <div className="mx-auto flex flex-col items-start justify-center">
+        <div className="flex max-w-4xl flex-col items-start justify-center">
           <h2 className="text-muted-foregrounds text-4xl font-bold tracking-tight">
             Features of Paraphraser
           </h2>

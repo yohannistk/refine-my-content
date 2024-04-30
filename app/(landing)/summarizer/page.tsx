@@ -16,35 +16,61 @@ const Summarizer = () => {
   return (
     <Container>
       <ContentSummarizer />
-      <Title
-        title="Summarizer"
-        subtitle="Need to quickly grasp key points? Our free summarizer tool condenses lengthy texts into concise summaries. Simply upload your document or paste text, and our AI will summarize it for easy comprehension. Summarize articles, essays, or research papers – it's the perfect tool to save time and verify information!"
-      />
-      <DetailTable
-        tableData={{
-          title: "Effortlessly understand complex documents.",
-          sutitle:
-            "Our AI-powered summarizer extracts key points and creates clear summaries of essays, papers, and more. Choose your preferred format, all for free and with unlimited use!",
-          rows: [
-            {
-              feature: "🚀 AI-driven technology",
-              explanation: "Rapidly identifies main ideas",
-            },
-            {
-              feature: "📝 Condenses",
-              explanation: "Essays, papers, and documents",
-            },
-            {
-              feature: "🧠 Various AI modes",
-              explanation: "Bullet Points and Paragraphs",
-            },
-            {
-              feature: "💸 No cost involved",
-              explanation: "Limitless summarization",
-            },
-          ],
-        }}
-      />
+      <div className="max-w-4xl">
+        <Title
+          title="Summarizer"
+          subtitle="Need to quickly grasp key points? Our free summarizer tool condenses lengthy texts into concise summaries. Simply upload your document or paste text, and our AI will summarize it for easy comprehension. Summarize articles, essays, or research papers – it's the perfect tool to save time and verify information!"
+        />
+        <DetailTable
+          tableData={{
+            rows: [
+              {
+                feature: "🚀 AI-driven technology",
+                explanation: "Rapidly identifies main ideas",
+              },
+              {
+                feature: "📝 Condenses",
+                explanation: "Essays, papers, and documents",
+              },
+              {
+                feature: "🧠 Various AI modes",
+                explanation: "Bullet Points and Paragraphs",
+              },
+              {
+                feature: "💸 No cost involved",
+                explanation: "Limitless summarization",
+              },
+            ],
+          }}
+        />
+        <div className="my-5 mb-1 pb-4">
+          <h2 className="text-accent-foreground mb-4 text-xl font-bold md:text-4xl">
+            How to use our text summarizer?
+          </h2>
+          <p className="text-muted-foreground mt-5 text-lg">
+            Save time and effort with our powerful summarizing tool that
+            delivers clear results with minimal input.
+          </p>
+          <ul className="text-muted-foreground mt-5 list-inside list-disc space-y-1 text-lg">
+            <li>
+              Insert the text (article, research paper, book extract) into the
+              text area.
+            </li>
+            <li>
+              Click the{" "}
+              <span className="text-primary font-bold">"Summarize"</span>{" "}
+              Button.{" "}
+            </li>
+            <li>
+              You can also choose between different styles{" "}
+              <span className="text-primary font-semibold">bullets</span>,{" "}
+              <span className="text-primary font-semibold">paragraph</span>, you
+              can also provide a custom style.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <FAQ faqs={summarizerFaq} />
     </Container>
   );

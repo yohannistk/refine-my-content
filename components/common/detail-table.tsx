@@ -1,21 +1,26 @@
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { subtle } from "crypto";
 
 interface TableData {
-  title: string;
-  sutitle: string;
+  title?: string;
+  sutitle?: string;
   rows: { feature: string; explanation: string }[];
 }
 interface Props {
   tableData: TableData;
 }
-export function DetailTable(props: Props) {
+export function DetailTable({ tableData: { rows, sutitle, title } }: Props) {
   return (
-    <div className="mx-auto mb-20 mt-24 max-w-2xl text-center">
-      <h2 className="text-3xl font-semibold">{props.tableData.title}</h2>
-      <p className="text-muted-foreground mt-3">{props.tableData.sutitle}</p>
-      <Table className="mt-9 rounded-full border">
+    <div className="mb-20 mt-8 max-w-2xl overflow-hidden rounded-xl border text-center shadow-xl">
+      {title && subtle ? (
+        <>
+          <h2 className="text-3xl font-semibold">{title}</h2>
+          <p className="text-muted-foreground mt-3">{sutitle}</p>
+        </>
+      ) : null}
+      <Table className="">
         <TableBody className="">
-          {props.tableData.rows.map(({ explanation, feature }) => (
+          {rows.map(({ explanation, feature }) => (
             <TableRow key={feature}>
               <TableCell className="border-r text-start text-base">
                 {feature}
