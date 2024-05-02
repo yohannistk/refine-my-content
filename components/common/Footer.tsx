@@ -1,9 +1,5 @@
 import Link from "next/link";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import EmailSubscription from "../landing/email-subscription";
-import Image from "next/image";
-import logo from "@/public/logo.png";
 export default function Footer() {
   return (
     <footer className="bg-secondary/55 container">
