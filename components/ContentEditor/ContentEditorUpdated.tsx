@@ -61,9 +61,9 @@ const ContentEditor = () => {
       .map((replacement) => replacement.value)
       .join(
         "|"
-      )} data-original=${original} data-current=${current} data-message=${JSON.stringify(
+      )} data-original=${original} data-current=${original} data-message=${JSON.stringify(
       message
-    )}>${current}</span>`;
+    )}>${original}</span>`;
   };
 
   const showPopup = (event: any) => {
