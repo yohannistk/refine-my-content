@@ -1,4 +1,3 @@
-import { features } from "@/data/app_data";
 import Image from "next/image";
 import React from "react";
 import paraphraseIcon from "../../public/icons/exchange_302409.png";

@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { features } from "@/data/app_data";
+import { features } from "@/constants/app_data";
 
 export default function Menu() {
   return (
