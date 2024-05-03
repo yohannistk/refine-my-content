@@ -1,5 +1,5 @@
 "use client";
-import { features } from "@/data/app_data";
+import { features } from "@/constants/app_data";
 import { getURL } from "@/utils/helpers";
 import { usePathname } from "next/navigation";
 import React from "react";
