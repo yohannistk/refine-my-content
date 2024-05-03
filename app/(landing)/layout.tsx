@@ -1,7 +1,7 @@
 import Footer from "@/components/common/footer";
-import Header from "@/components/common/header";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import Header from "../../components/common/header";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -17,7 +17,7 @@ export default async function RootLayout({
       <div className="">
         <Header session={session} />
         <main className="">
-          {/* <div className="absolute inset-0 -z-10 h-screen bg-green-100"></div> */}
+          {/* <div className="absolute inset-0 -z-10 h-screen bg-blue-50"></div> */}
           {children}
           <Footer />
         </main>
