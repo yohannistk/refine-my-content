@@ -1,5 +1,3 @@
-import Container from "@/components/common/Container";
-import Link from "next/link";
 import React, { PropsWithChildren } from "react";
 
 const Paragraph = ({ children }: PropsWithChildren) => {

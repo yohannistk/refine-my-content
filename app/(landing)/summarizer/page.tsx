@@ -3,9 +3,11 @@ import React from "react";
 import ContentSummarizer from "./components/ContentSummarizer";
 import Title from "@/components/common/title";
 import FAQ from "@/components/common/faq";
-import { summarizerFaq } from "@/data/faq";
+import { summarizerFaq } from "@/constants/faq";
 import { DetailTable } from "@/components/common/detail-table";
 import { Metadata } from "next";
+import UseCase from "@/components/common/use-case";
+import { summarizer } from "@/constants/use-cases";
 
 export const metadata: Metadata = {
   title: "Get Straight to the Point: Free Online Text Summarizer",
@@ -70,7 +72,18 @@ const Summarizer = () => {
           </ul>
         </div>
       </div>
+      <div className="py-12">
+        <h2 className="text-accent-foreground mb-4 text-xl font-bold md:text-4xl">
+          Who needs a summarizer?
+        </h2>
 
+        <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+          A free summarizer can be a valuable asset for a wide range of people.
+          Here's a detailed explanation for each user group of your online free
+          Summarizer:
+        </p>
+        <UseCase useCase={summarizer} />
+      </div>
       <FAQ faqs={summarizerFaq} />
     </Container>
   );

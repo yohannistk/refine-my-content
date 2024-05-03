@@ -11,7 +11,7 @@ interface Props {
 }
 export function DetailTable({ tableData: { rows, sutitle, title } }: Props) {
   return (
-    <div className="mb-20 mt-8 max-w-2xl overflow-hidden rounded-xl border text-center shadow-xl">
+    <div className="z-10 mb-20 mt-8 max-w-2xl overflow-hidden rounded-xl border text-center shadow-xl">
       {title && subtle ? (
         <>
           <h2 className="text-3xl font-semibold">{title}</h2>

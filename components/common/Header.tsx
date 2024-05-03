@@ -14,7 +14,7 @@ import { Avatar, AvatarFallback } from "../ui/avatar";
 import { UserNav } from "../ui/user-nav";
 import logo from "@/public/logo.svg";
 import Image from "next/image";
-import { features } from "@/data/app_data";
+import { features } from "@/constants/app_data";
 
 interface Props {
   session: Session | null;
@@ -41,69 +41,75 @@ const NavLogo = () => {
 const Header = (props: Props) => {
   const { session } = props;
   return (
-    <header className="container mx-auto flex max-w-6xl items-center justify-between py-5 md:flex-row">
-      <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-        <NavLogo />
-        {features.map((feature) => {
-          return (
-            <Link
-              key={feature.href}
-              href={feature.href}
-              className="text-muted-foreground font-medium leading-6 hover:text-gray-900"
+    <header className="bg-background sticky top-0 z-50">
+      <div className="mx-auto flex max-w-6xl items-center justify-between py-5 md:flex-row">
+        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+          <NavLogo />
+          {features.map((feature) => {
+            return (
+              <Link
+                key={feature.href}
+                href={feature.href}
+                className="text-muted-foreground font-medium leading-6 hover:text-gray-900"
+              >
+                {feature.title}
+              </Link>
+            );
+          })}
+        </nav>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              variant="outline"
+              size="icon"
+              className="shrink-0 md:hidden"
             >
-              {feature.title}
-            </Link>
-          );
-        })}
-      </nav>
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="shrink-0 md:hidden">
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle navigation menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left">
-          <nav className="grid gap-6 text-lg font-medium">
-            <NavLogo />
-            {features.map((feature) => {
-              return (
-                <SheetClose asChild>
-                  <Link
-                    key={feature.title}
-                    href={feature.href}
-                    className="hover:text-foreground"
-                  >
-                    {feature.title}
-                  </Link>
-                </SheetClose>
-              );
-            })}
-          </nav>
-        </SheetContent>
-      </Sheet>
-      <div className="flex items-center gap-4 md:gap-2 lg:gap-4">
-        <ThemeChanger />
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left">
+            <nav className="grid gap-6 text-lg font-medium">
+              <NavLogo />
+              {features.map((feature) => {
+                return (
+                  <SheetClose asChild>
+                    <Link
+                      key={feature.title}
+                      href={feature.href}
+                      className="hover:text-foreground"
+                    >
+                      {feature.title}
+                    </Link>
+                  </SheetClose>
+                );
+              })}
+            </nav>
+          </SheetContent>
+        </Sheet>
+        <div className="flex items-center gap-4 md:gap-2 lg:gap-4">
+          <ThemeChanger />
 
-        {session ? (
-          <UserNav
-            avatarUrl={
-              session.user.app_metadata.provider != "email"
-                ? session.user.user_metadata.avatar_url
-                : undefined
-            }
-            email={session.user.email!}
-            userName={session.user.user_metadata.user_name}
-          />
-        ) : (
-          <Link href={"/sign-in"}>
-            <Avatar>
-              <AvatarFallback>
-                <User />
-              </AvatarFallback>
-            </Avatar>
-          </Link>
-        )}
+          {session ? (
+            <UserNav
+              avatarUrl={
+                session.user.app_metadata.provider != "email"
+                  ? session.user.user_metadata.avatar_url
+                  : undefined
+              }
+              email={session.user.email!}
+              userName={session.user.user_metadata.user_name}
+            />
+          ) : (
+            <Link href={"/sign-in"}>
+              <Avatar>
+                <AvatarFallback>
+                  <User />
+                </AvatarFallback>
+              </Avatar>
+            </Link>
+          )}
+        </div>
       </div>
     </header>
   );

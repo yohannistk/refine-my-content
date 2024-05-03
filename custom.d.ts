@@ -1,5 +1,6 @@
 export {};
 
+export type UseCase = { title: string; description: string };
 export type ParaphraserMode =
   | "smooth"
   | "formal"

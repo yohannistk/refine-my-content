@@ -1,9 +1,9 @@
 import Container from "@/components/common/Container";
 import Title from "@/components/common/title";
-import { features } from "@/data/app_data";
+import { features } from "@/constants/app_data";
 import ConverImage from "./components/ConverImage";
 import FAQ from "@/components/common/faq";
-import { imageToTextFaq } from "@/data/faq";
+import { imageToTextFaq } from "@/constants/faq";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

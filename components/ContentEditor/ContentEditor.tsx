@@ -8,9 +8,7 @@ import { Correction } from "@/app/api/grammar/route";
 import { cn } from "@/lib/utils";
 import {
   CircleCheckBig,
-  Clipboard,
   Copy,
-  Delete,
   Edit,
   Trash,
   Trash2Icon,

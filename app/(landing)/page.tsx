@@ -2,7 +2,7 @@ import Container from "@/components/common/Container";
 import ContentEditorUpdated from "@/components/ContentEditor/ContentEditorUpdated";
 import FAQ from "@/components/common/faq";
 import Title from "@/components/common/title";
-import { grammarCheckerFaq } from "@/data/faq";
+import { grammarCheckerFaq } from "@/constants/faq";
 import React from "react";
 import { DetailTable } from "@/components/common/detail-table";
 import { Metadata } from "next";

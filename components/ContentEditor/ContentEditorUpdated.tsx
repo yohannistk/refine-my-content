@@ -249,7 +249,7 @@ const ContentEditor = () => {
   };
 
   return (
-    <div className="rounded-xl border shadow-xl">
+    <div className="rounded-xl shadow-xl">
       <div
         id="popup"
         className="popup dark:bg-secondary/40 text-muted-foreground border-secondary absolute left-0 z-10 hidden w-72 space-y-2 rounded-md border-2 bg-white px-3 py-2 text-sm shadow-xl"

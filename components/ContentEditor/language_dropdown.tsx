@@ -18,7 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { languages } from "@/data/app_data";
+import { languages } from "@/constants/app_data";
 
 interface Props {
   language: string;

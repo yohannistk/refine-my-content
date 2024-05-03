@@ -3,7 +3,7 @@ import Title from "@/components/common/title";
 import React from "react";
 import ContentParaphraser from "./components/ContentParaphraser";
 import FAQ from "@/components/common/faq";
-import { paraphraserFaq } from "@/data/faq";
+import { paraphraserFaq } from "@/constants/faq";
 import { Metadata } from "next";
 import { Brain, Repeat, Smile, ThumbsUp } from "lucide-react";
 

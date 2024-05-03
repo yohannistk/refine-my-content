@@ -3,7 +3,7 @@ import FAQ from "@/components/common/faq";
 import RichTextEditor from "@/components/common/rich-text-editor";
 import { WordCountFooter } from "@/components/common/rich-text-editor/word-count-footer";
 import Title from "@/components/common/title";
-import { wordCounterFaq } from "@/data/faq";
+import { wordCounterFaq } from "@/constants/faq";
 import { Metadata } from "next";
 import React from "react";
 export const metadata: Metadata = {
