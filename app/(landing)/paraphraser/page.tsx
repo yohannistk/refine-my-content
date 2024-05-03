@@ -6,6 +6,8 @@ import FAQ from "@/components/common/faq";
 import { paraphraserFaq } from "@/constants/faq";
 import { Metadata } from "next";
 import { Brain, Repeat, Smile, ThumbsUp } from "lucide-react";
+import UseCase from "@/components/common/use-case";
+import { paraphraser, summarizer } from "@/constants/use-cases";
 
 export const metadata: Metadata = {
   title: "Rephrase It Right: Free Online Paraphrasing Tool",
@@ -101,6 +103,18 @@ const Paraphraser = () => {
             </div>
           </dl>
         </div>
+      </div>
+      <div className="py-12">
+        <h2 className="text-accent-foreground mb-4 text-xl font-bold md:text-4xl">
+          Who needs a paraphraser?
+        </h2>
+
+        <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+          A free paraphrasing tool can be your secret weapon for crafting clear
+          and impactful writing. It goes beyond summarizing by offering a range
+          of benefits for various users, including:
+        </p>
+        <UseCase useCase={paraphraser} />
       </div>
 
       <FAQ faqs={paraphraserFaq} />

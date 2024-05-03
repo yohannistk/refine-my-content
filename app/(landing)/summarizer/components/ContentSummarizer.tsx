@@ -144,7 +144,7 @@ const ContentSummarizer = () => {
               <Button
                 onClick={handleGetClipboardContent}
                 variant={"outline"}
-                className="absolute left-1/2 top-1/2 z-50 h-20 w-28 -translate-x-1/2 -translate-y-1/2 shadow"
+                className="absolute left-1/2 top-1/2 z-20 h-20 w-28 -translate-x-1/2 -translate-y-1/2 shadow"
               >
                 <ClipboardPasteIcon
                   size={30}
