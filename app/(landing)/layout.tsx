@@ -17,7 +17,7 @@ export default async function RootLayout({
       <div className="">
         <Header session={session} />
         <main className="">
-          {/* <div className="absolute inset-0 -z-10 h-screen bg-blue-50"></div> */}
+          <div className="absolute inset-0 -z-10 h-screen bg-gray-900"></div>
           {children}
           <Footer />
         </main>

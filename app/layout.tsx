@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import Hydrated from "@/components/common/hydrated";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+import HotjarSnippet from "@/components/common/HotjarSnippet";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <HotjarSnippet />
+      </head>
       <body className={inter.className}>
         <Analytics />
         <Hydrated>
