@@ -30,7 +30,7 @@ const NavLogo = () => {
   return (
     <Link
       href="/"
-      className="mb-5 flex items-center font-medium md:mb-0 lg:w-auto lg:items-center lg:justify-center"
+      className="flex w-auto items-center justify-center font-medium"
     >
       <Image
         className="rounded-full"
@@ -48,51 +48,13 @@ export default function Header({ session }: Props) {
   const pathname = usePathname();
   return (
     <header className="z-50 mb-9 h-20 w-full px-2 py-3">
-      <div className="mx-auto flex h-full max-w-6xl shrink-0 items-center rounded-full bg-gray-800 px-4 md:px-6">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button
-              variant="outline"
-              size="icon"
-              className="shrink-0 md:hidden"
-            >
-              <MenuIcon className="h-6 w-6" />
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left">
-            <nav className="grid gap-6 text-lg font-medium">
-              <NavLogo />
-              {features.map((feature) => {
-                return (
-                  <SheetClose asChild>
-                    <Link
-                      key={feature.title}
-                      href={feature.href}
-                      className="hover:text-foreground"
-                    >
-                      {feature.title}
-                    </Link>
-                  </SheetClose>
-                );
-              })}
-            </nav>
-          </SheetContent>
-        </Sheet>
-        <Link
-          className="mr-6 hidden text-xl font-bold text-white lg:flex"
-          href="#"
-        >
-          {/* Pixel<span className="text-primary">Pulse</span> */}
-          <NavLogo />
-        </Link>
+      <div className="mx-auto flex h-full max-w-6xl shrink-0 items-center justify-between rounded-full bg-gray-800 px-4 md:px-6">
+        <NavLogo />
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             {features.map((feature) => {
               const isActive = getURL(pathname) == getURL(feature.href);
-              console.log(getURL(feature.href));
-              console.log(pathname);
-              // console.log(pathname);
+
               return (
                 <NavigationMenuLink asChild key={feature.href}>
                   <Link
@@ -111,7 +73,7 @@ export default function Header({ session }: Props) {
             })}
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="ml-auto flex gap-2">
+        <div className="hidden lg:flex">
           {session ? (
             <UserNav
               avatarUrl={
@@ -123,7 +85,7 @@ export default function Header({ session }: Props) {
               userName={session.user.user_metadata.user_name}
             />
           ) : (
-            <>
+            <div className="hidden gap-3 lg:flex ">
               <Link
                 href={"/sign-in"}
                 className={buttonVariants({
@@ -135,7 +97,67 @@ export default function Header({ session }: Props) {
               <Link href={"/sign-up"} className={buttonVariants()}>
                 Sign Up
               </Link>
-            </>
+            </div>
+          )}
+        </div>
+        <div className="flex items-center gap-4 lg:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="shrink-0">
+                <MenuIcon className="h-6 w-6" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+              <nav className="grid gap-6 text-lg font-medium">
+                <NavLogo />
+                {features.map((feature) => {
+                  return (
+                    <SheetClose asChild key={feature.href}>
+                      <Link
+                        key={feature.title}
+                        href={feature.href}
+                        className="hover:text-foreground"
+                      >
+                        {feature.title}
+                      </Link>
+                    </SheetClose>
+                  );
+                })}
+                <SheetClose>
+                  <Link
+                    href={"/sign-in"}
+                    className={buttonVariants({
+                      variant: "outline",
+                      className: "block w-full",
+                    })}
+                  >
+                    Sign in
+                  </Link>
+                </SheetClose>
+                <SheetClose>
+                  <Link
+                    href={"/sign-up"}
+                    className={buttonVariants({
+                      className: "block w-full",
+                    })}
+                  >
+                    Sign Up
+                  </Link>
+                </SheetClose>
+              </nav>
+            </SheetContent>
+          </Sheet>
+          {session && (
+            <UserNav
+              avatarUrl={
+                session.user.app_metadata.provider != "email"
+                  ? session.user.user_metadata.avatar_url
+                  : undefined
+              }
+              email={session.user.email!}
+              userName={session.user.user_metadata.user_name}
+            />
           )}
         </div>
       </div>
